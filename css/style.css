@@ -211,11 +211,6 @@ News
 #ac-menu .label:hover {
   background-color: #4ee6e6;
 }
-/*
-ラベル右側のアイコン「＋」を設定
-beforeが横棒
-afterが縦棒
-*/
 #ac-menu .label::before,
 #ac-menu .label::after {
   content: '';
@@ -232,25 +227,18 @@ afterが縦棒
   transition: .5s;
 }
 
-/*
-アコーディオンメニューが開いている場合
-*/
+/*-------------------------------------------
+Accordion menu opened
+-------------------------------------------*/
 #ac-menu .label.open {
-  /* ラベルの背景色を変更 */
   background-color: #4ee6e6;
 }
 #ac-menu .label.open::before {
-  /* ラベルアイコンの横棒を非表示 */
   opacity: 0;
 }
 #ac-menu .label.open::after {
-  /* ラベルアイコンの縦棒を横向きに回転 */
   transform: rotate(180deg);
 }
-/*
-アコーディオンメニューのコンテンツ部分は、「display: none;」で非表示にしておく。
-ラベルクリック時にjQueryの「  $(this).next().slideToggle();」で表示に切り替わる
-*/
 #ac-menu .detail {
   padding: 35px 30px;
   display: none;
@@ -274,8 +262,8 @@ afterが縦棒
 SP
 -------------------------------------------*/
 @media screen and (max-width: 600px) {
-  #ac-menu .label {
-    padding: 40px 0;
+  #ac-menu .label dt{
+    border-bottom: none;
   }
   #ac-menu .detail {
     padding: 35px 0;
