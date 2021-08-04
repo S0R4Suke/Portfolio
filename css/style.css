@@ -1,0 +1,387 @@
+@charset "UTF-8";
+
+html {
+  font-size: 100%;
+}
+body {
+  color: #24292e;
+}
+
+img {
+  max-width: 100%;
+}
+li {
+  list-style: none;
+}
+
+.wrapper {
+  max-width: 960px;
+  margin: 0 auto 130px auto;
+  font-size: 0.9rem;
+  padding: 0 4%;
+}
+
+.site-title {
+  line-height: 1px;
+}
+
+.site-title a {
+  display: block;
+}
+
+.section-title {
+  border-bottom: solid 2px #AEAEAE;
+  font-size: 1.5rem;
+  text-align: center;
+  margin-bottom: 65px;
+}
+
+/*-------------------------------------------
+ヘッダー
+-------------------------------------------*/
+.header {
+  z-index: 9999;
+  background-color: #fff;
+  position: fixed;
+  width: 100%;
+  box-shadow: 0px 3px 3px -3px rgba(0,0,0,0.6);
+  -webkit-box-shadow: 0px 3px 3px -3px rgba(0,0,0,0.6);
+  -moz-box-shadow: 0px 3px 3px -3px rgba(0,0,0,0.6);
+}
+#header {
+  max-width: 960px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100px;
+  margin: 0 auto;
+  padding: 0 4%;
+  
+}
+
+#header img {
+  width: 300px;
+  margin: auto;
+}
+
+#header ul {
+  display: flex;
+  padding: 10px 0;
+}
+
+#header li {
+  font-size: 1.0rem;
+  margin-left: 30px;
+}
+
+#header li a {
+  text-decoration: none;
+  color: #24292e;
+}
+
+.hover-Uline {
+  position: relative;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.hover-Uline:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -5px;
+  width: 100%;
+  height: 2px;
+  background-color: #333;
+  transform: scale(0, 1);
+  transform-origin: center;
+  transition: transform .2s;
+}
+
+.hover-Uline:hover:before {
+  transform: scale(1);
+}
+
+
+#header li img.icon {
+  width: 20px;
+}
+
+/*-------------------------------------------
+Mainvisual
+-------------------------------------------*/
+#mainvisual {
+  margin-bottom: 80px;
+}
+#mainvisual img {
+  width: 100%;
+  max-width: 1920px;
+  height: 420px;
+  object-fit: cover;
+}
+
+/*-------------------------------------------
+About
+-------------------------------------------*/
+#about ul {
+  margin-bottom: 30px;
+}
+#about li:first-child {
+  margin-bottom: 30px;
+}
+#about p {
+  text-align:justify;
+}
+
+.content img{
+  vertical-align: middle;
+  width: 50px;
+  height: 50px;
+}
+
+.content a{
+  vertical-align: middle;
+}
+
+/*-------------------------------------------
+skills
+-------------------------------------------*/
+
+.skill-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-bottom: -50px;
+}
+
+.skill-item {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 48%;
+  margin-bottom: 50px;
+}
+
+#skills  img{
+  width: 60px;
+  height: auto;
+  margin-right: 20px;
+}
+
+.skill-body {
+  flex: 1;
+}
+
+.skill-name {
+  margin-bottom: 10px;
+}
+
+.skill-text {
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+
+/*-------------------------------------------
+News
+-------------------------------------------*/
+#ac-menu .label dl {
+  display: flex;
+  flex-wrap: wrap;
+  border-top: solid 1px #c8c8c8;
+}
+#ac-menu .label dt {
+  width: 20%;
+  border-bottom: solid 1px #c8c8c8;
+  padding: 15px;
+}
+#ac-menu .label dd {
+  width: 80%;
+  border-bottom: solid 1px #c8c8c8;
+  padding: 15px;
+}
+
+#ac-menu .label {
+  cursor:pointer;
+  position: relative;
+  transition: .5s;
+}
+
+#ac-menu .label:hover {
+  background-color: #4ee6e6;
+}
+/*
+ラベル右側のアイコン「＋」を設定
+beforeが横棒
+afterが縦棒
+*/
+#ac-menu .label::before,
+#ac-menu .label::after {
+  content: '';
+  width: 20px;
+  height: 1px;
+  background: #000;
+  position: absolute;
+  top: 50%;
+  right: 5%;
+  transform: translateY(-50%);
+}
+#ac-menu .label::after {
+  transform: translateY(-50%) rotate(90deg);
+  transition: .5s;
+}
+
+/*
+アコーディオンメニューが開いている場合
+*/
+#ac-menu .label.open {
+  /* ラベルの背景色を変更 */
+  background-color: #4ee6e6;
+}
+#ac-menu .label.open::before {
+  /* ラベルアイコンの横棒を非表示 */
+  opacity: 0;
+}
+#ac-menu .label.open::after {
+  /* ラベルアイコンの縦棒を横向きに回転 */
+  transform: rotate(180deg);
+}
+/*
+アコーディオンメニューのコンテンツ部分は、「display: none;」で非表示にしておく。
+ラベルクリック時にjQueryの「  $(this).next().slideToggle();」で表示に切り替わる
+*/
+#ac-menu .detail {
+  padding: 35px 30px;
+  display: none;
+}
+#ac-menu .detail dl {
+  display: flex;
+  flex-wrap: wrap;
+}
+#ac-menu .detail dt {
+  width: 20%;
+  font-weight: bold;
+  margin-bottom: 40px;
+}
+#ac-menu .detail dd {
+  width: 80%;
+  margin-bottom: 40px;
+}
+
+
+/*-------------------------------------------
+SP
+-------------------------------------------*/
+@media screen and (max-width: 600px) {
+  #ac-menu .label {
+    padding: 40px 0;
+  }
+  #ac-menu .detail {
+    padding: 35px 0;
+  }
+  #ac-menu .detail dl {
+    flex-direction: column;
+  }
+  #ac-menu .detail dt {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  #ac-menu .detail dd {
+    width: 100%;
+    padding-left: 10px;
+  }
+}
+
+/*-------------------------------------------
+Link
+-------------------------------------------*/
+#link ul {
+  margin-bottom: 30px;
+}
+#link li:first-child {
+  margin-bottom: 20px;
+}
+
+
+/*-------------------------------------------
+フッター
+-------------------------------------------*/
+#footer {
+  background-color: #24292e;
+  color: #fff;
+  font-size: 0.5rem;
+  padding: 10px 20px;
+  text-align: center;
+}
+
+/*-------------------------------------------
+SP
+-------------------------------------------*/
+@media screen and (max-width: 600px) {
+  .wrapper {
+    margin-bottom: 70px;
+  }
+  .site-title {
+    margin-top: 20px;
+  }
+  .section-title {
+    border-bottom: solid 2px #EFEFEF;
+    margin-bottom: 40px;
+  }
+
+  /*-------------------------------------------
+  ヘッダー
+  -------------------------------------------*/
+  #header {
+    max-width: 100%;
+    height: auto;
+    flex-direction: column;
+  }
+  #header li {
+    font-size: 0.8rem;
+    margin-left: 20px;
+  }
+  #header li:first-child {
+    margin-left: 0;
+  }
+
+  /*-------------------------------------------
+  skills
+  -------------------------------------------*/
+  #skills ul {
+    flex-direction: column;
+  }
+  #skills li {
+    width: 100%;
+  }
+
+  /*-------------------------------------------
+  News
+  -------------------------------------------*/
+  #news dl {
+    flex-direction: column;
+  }
+  #news dt {
+    width: 100%;
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+  #news dd {
+    width: 100%;
+    padding-top: 0;
+  }
+
+  /*-------------------------------------------
+  Link
+  -------------------------------------------*/
+  #link dl {
+    flex-direction: column;
+  }
+  #link dt {
+    width: 100%;
+  }
+  #link dd {
+    width: 100%;
+  }
+}
